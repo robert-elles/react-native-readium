@@ -1,7 +1,7 @@
 buildscript {
   // Buildscript is evaluated before everything else so we can't use getExtOrDefault
   def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : project.properties['Readium_kotlinVersion']
-  ext.readium_version = '2.2.1'
+  ext.readium_version = '2.3.0'
 
   repositories {
     google()
@@ -171,7 +171,7 @@ dependencies {
   //noinspection GradleDependency
   implementation "com.squareup.picasso:picasso:2.5.2"
   implementation "joda-time:joda-time:2.10.10"
-  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
   // AM NOTE: needs to stay this version for now (June 24,2020)
   //noinspection GradleDependency
   implementation "org.jsoup:jsoup:1.13.1"

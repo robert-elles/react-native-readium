@@ -78,6 +78,21 @@ class ReadiumView(
             payload
           )
         }
+        is ReaderViewModel.Event.Failure -> {
+          // Handle Failure event
+        }
+        is ReaderViewModel.Event.OpenDrmManagementRequested -> {
+          // Handle OpenDrmManagementRequested event
+        }
+        is ReaderViewModel.Event.OpenOutlineRequested -> {
+          // Handle OpenOutlineRequested event
+        }
+        is ReaderViewModel.Event.StartNewSearch -> {
+          // Handle StartNewSearch event
+        }
+        else -> {
+          // Handle any other cases
+        }
       }
     }
   }
