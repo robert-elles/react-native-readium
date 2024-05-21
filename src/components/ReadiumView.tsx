@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useRef, useEffect, forwardRef } from 'react';
+import React, { useCallback, useState, useRef, useEffect } from 'react';
 import { View, Platform, findNodeHandle, StyleSheet } from 'react-native';
 
 import type { BaseReadiumViewProps, Dimensions } from '../interfaces';
@@ -8,12 +8,13 @@ import { BaseReadiumView } from './BaseReadiumView';
 
 export type ReadiumProps = BaseReadiumViewProps;
 
-export const ReadiumView = forwardRef (({
+export const ReadiumView: React.FC<ReadiumProps> = ({
   onLocationChange: wrappedOnLocationChange,
   onTableOfContents: wrappedOnTableOfContents,
   settings: unmappedSettings,
   ...props
-}: ReadiumProps, ref) => {
+}) => {
+  const ref = useRef(null);
   const [{ height, width }, setDimensions] = useState<Dimensions>({
     width: 0,
     height: 0,
@@ -44,7 +45,7 @@ export const ReadiumView = forwardRef (({
       const viewId = findNodeHandle(ref.current);
       createFragment(viewId);
     }
-  }, [ref])
+  }, [])
 
   return (
     <View
@@ -62,7 +63,7 @@ export const ReadiumView = forwardRef (({
       />
     </View>
   );
-});
+};
 
 const styles = StyleSheet.create({
   container: { width: '100%', height: '100%' },
