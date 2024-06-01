@@ -10,7 +10,7 @@ import org.readium.r2.navigator.R2WebView
 import org.readium.r2.navigator.epub.fxl.R2FXLLayout
 import org.readium.r2.navigator.pager.R2ViewPager
 import org.readium.r2.shared.*
-import com.reactnativereadium.R
+import org.readium.r2.navigator.R
 import java.io.File
 
 class UserSettings(
