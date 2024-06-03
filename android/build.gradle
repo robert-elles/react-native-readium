@@ -10,7 +10,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:4.2.2'
+    classpath 'com.android.tools.build:gradle:7.4.2'
     // noinspection DifferentKotlinGradleVersion
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
   }
@@ -45,22 +45,25 @@ android {
     disable 'GradleCompatible'
   }
   compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
+    sourceCompatibility JavaVersion.VERSION_11
+    targetCompatibility JavaVersion.VERSION_11
   }
 
   kotlinOptions {
-    jvmTarget = "1.8"
+    jvmTarget = "11"
   }
+
+  // composeOptions {
+  //     kotlinCompilerExtensionVersion = "1.7.20"
+  // }
 
   buildFeatures {
     viewBinding true
+    // compose = true
   }
 }
 
 repositories {
-
-  maven { url 'https://jitpack.io' }
 
   mavenCentral()
   jcenter()
@@ -174,6 +177,9 @@ dependencies {
   // AM NOTE: needs to stay this version for now (June 24,2020)
   //noinspection GradleDependency
   implementation "org.jsoup:jsoup:1.13.1"
+
+  implementation 'androidx.datastore:datastore-preferences-core:1.0.0'
+  // implementation "androidx.compose.foundation:foundation:1.6.7"
 
   // Room database
   final room_version = "2.4.0-beta01"
